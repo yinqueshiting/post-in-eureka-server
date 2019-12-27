@@ -39,7 +39,7 @@ public class InitialController {
             log.info("serverString:{}",serverString);
         }
       // log.info("简单请求discoveryClient:{}",discoveryClient.ge);
-
+        int i = 5/0;
         Map map = new HashMap<String,String>();
         map.put("every", "is ok");
         return map;
