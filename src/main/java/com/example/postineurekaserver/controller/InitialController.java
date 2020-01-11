@@ -1,9 +1,9 @@
 package com.example.postineurekaserver.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.discovery.DiscoveryClient;*/
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import java.util.Map;
 @Slf4j
 public class InitialController {
 
-    @Autowired
+  /*  @Autowired
     private DiscoveryClient discoveryClient;
 
     @RequestMapping("initial")
@@ -44,12 +44,12 @@ public class InitialController {
         map.put("every", "is ok");
         return map;
     }
-    /**
+    *//**
      * @Description 测试被json类型的请求调用
      * @return
      * @Date 2019/12/17 16:07
      * @Created by xg
-     */
+     *//*
     @PostMapping(value = "postJson")
     public Object postJson(@RequestBody Map paramMap){
         log.info("postJson接收参数：{}",paramMap);
@@ -57,17 +57,17 @@ public class InitialController {
         resMap.put("ok", "value");
         return resMap;
     }
-    /**
+    *//**
      * @Description 测试被表单的请求调用
      * @return
      * @Date 2019/12/17 16:07
      * @Created by xg
-     */
+     *//*
     @PostMapping(value = "postForm")
     public Object postForm(@RequestParam("key")String value){
         log.info("postForm接收的参数：{}",value);
         Map resMap = new HashMap<>();
         resMap.put("ok", "value");
         return resMap;
-    }
+    }*/
 }
