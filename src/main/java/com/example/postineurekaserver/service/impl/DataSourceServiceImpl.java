@@ -48,9 +48,9 @@ public class DataSourceServiceImpl implements DataSourceService {
     public Object doubleSourceTran() throws Exception {
         dataSourceMapper.updateUserInfoByUserid(1006);
 
-       /* try{
+        //try{
             clusterDataSourceService.clusterUpdateUserInfo();
-        }catch (Exception e){
+       /* }catch (Exception e){
             log.info("clust异常 但不能印象Master的执行");
             e.printStackTrace();
         }*/
@@ -63,7 +63,7 @@ public class DataSourceServiceImpl implements DataSourceService {
     public Object masterUpdateUser() throws Exception {
         dataSourceMapper.updateUserInfoByUserid2(1007);
         doubleSourceTran();
-        int i = 5/0;
+
         return new HashMap<>();
     }
 

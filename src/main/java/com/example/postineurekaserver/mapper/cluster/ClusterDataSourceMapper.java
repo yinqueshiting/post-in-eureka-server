@@ -9,5 +9,5 @@ import java.util.Map;
 public interface ClusterDataSourceMapper {
     public Map clusterTestData();
 
-    void updateUserInfoByUserid(@Param("user_id") int i);
+    void clusterUpdateUserInfoByUserid(@Param("user_id") int i);
 }

@@ -6,7 +6,7 @@
         select user_id,user_name from hh_user where user_id = 1006
     </select>
 
-    <update id="updateUserInfoByUserid">
+    <update id="clusterUpdateUserInfoByUserid">
         update hh_user set user_name = 'user_name_cluster_1' where user_id = #{user_id}
     </update>
 </mapper>

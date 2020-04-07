@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @SpringBootApplication
 //@EnableDiscoveryClient
-@MapperScan(basePackages = {"com.example.postineurekaserver.mapper.*"})
+//@MapperScan(basePackages = "com.example.postineurekaserver.mapper.*")
 @ComponentScan(basePackages = {"com.example.postineurekaserver.*"})
 public class PostInEurekaServerApplication {
 

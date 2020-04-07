@@ -25,7 +25,7 @@ public class ClusterDataSourceServiceImpl implements ClusterDataSourceService {
 
     @Transactional(propagation = Propagation.REQUIRES_NEW,rollbackFor = Exception.class)
     public void clusterUpdateUserInfo(){
-        clusterDataSourceMapper.updateUserInfoByUserid(1006);
+        clusterDataSourceMapper.clusterUpdateUserInfoByUserid(1006);
         int i = 5/0;
     }
 }

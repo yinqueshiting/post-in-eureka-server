@@ -6,9 +6,12 @@ spring:
 
       systemDB:
         name: systemDB
-        url: jdbc:mysql://localhost:3306/master?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
+        url: jdbc:mysql://106.12.73.46:3306/master?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
         username: root
-        password: 123456
+        password: VI8QENMDS8+J4m+rFKUQ+Y5FQTDCuIlBWACGIiiPJ3Si59ttCCHtNwdSdn5K/I16t4y7yHunN0fZU9Z893O2GQ==
+        connect-properties:
+          config.decrypt: true
+          config.decrypt.key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIU+BKY7auObg3YAYnb0azn6iixXwEyvwn2PPkDYaWacnFw8EeFAk/5P2wxR14lmT5rmrRXZxEZJk6lGYbmNmMkCAwEAAQ==
         # 下面为连接池的补充设置，应用到上面所有数据源中
         # 初始化大小，最小，最大
         initialSize: 5
@@ -19,7 +22,7 @@ spring:
         # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
         timeBetweenEvictionRunsMillis: 60000
         # 配置一个连接在池中最小生存的时间，单位是毫秒
-        minEvictableIdleTimeMillis: 30
+        minEvictableIdleTimeMillis: 30000
         validationQuery: SELECT 1
         validationQueryTimeout: 10000
         testWhileIdle: true
@@ -37,9 +40,12 @@ spring:
       businessDB:
         name: businessDB
 
-        url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
+        url: jdbc:mysql://106.12.73.46:33061/cluster?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
         username: root
-        password: 123456
+        password: VI8QENMDS8+J4m+rFKUQ+Y5FQTDCuIlBWACGIiiPJ3Si59ttCCHtNwdSdn5K/I16t4y7yHunN0fZU9Z893O2GQ==
+        connect-properties:
+          config.decrypt: true
+          config.decrypt.key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIU+BKY7auObg3YAYnb0azn6iixXwEyvwn2PPkDYaWacnFw8EeFAk/5P2wxR14lmT5rmrRXZxEZJk6lGYbmNmMkCAwEAAQ==
         # 下面为连接池的补充设置，应用到上面所有数据源中
         # 初始化大小，最小，最大
         initialSize: 5
@@ -50,7 +56,7 @@ spring:
         # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
         timeBetweenEvictionRunsMillis: 60000
         # 配置一个连接在池中最小生存的时间，单位是毫秒
-        minEvictableIdleTimeMillis: 30
+        minEvictableIdleTimeMillis: 30000
         validationQuery: SELECT 1
         validationQueryTimeout: 10000
         testWhileIdle: true
@@ -69,3 +75,6 @@ spring:
   jta:
     #log-dir: classpath:tx-logs
     transaction-manager-id: txManager
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

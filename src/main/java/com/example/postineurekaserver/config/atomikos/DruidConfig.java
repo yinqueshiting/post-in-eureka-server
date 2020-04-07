@@ -1,5 +1,6 @@
 package com.example.postineurekaserver.config.atomikos;
 
+import com.alibaba.druid.filter.config.ConfigTools;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
@@ -28,10 +29,12 @@ import java.util.Properties;
  */
 @Configuration
 public class DruidConfig {
+    private String publicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIU+BKY7auObg3YAYnb0azn6iixXwEyvwn2PPkDYaWacnFw8EeFAk/5P2wxR14lmT5rmrRXZxEZJk6lGYbmNmMkCAwEAAQ==";
+
     @Bean(name = "systemDataSource")
     @Primary
     @Autowired
-    public DataSource systemDataSource(Environment env) {
+    public DataSource systemDataSource(Environment env) throws Exception {
         AtomikosDataSourceBean ds = new AtomikosDataSourceBean();
         Properties prop = build(env, "spring.datasource.druid.systemDB.");
         ds.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
@@ -44,7 +47,7 @@ public class DruidConfig {
 
     @Autowired
     @Bean(name = "businessDataSource")
-    public AtomikosDataSourceBean businessDataSource(Environment env) {
+    public AtomikosDataSourceBean businessDataSource(Environment env) throws Exception {
 
         AtomikosDataSourceBean ds = new AtomikosDataSourceBean();
         Properties prop = build(env, "spring.datasource.druid.businessDB.");
@@ -69,12 +72,13 @@ public class DruidConfig {
     }
 
 
-    private Properties build(Environment env, String prefix) {
+    private Properties build(Environment env, String prefix) throws Exception {
 
         Properties prop = new Properties();
         prop.put("url", env.getProperty(prefix + "url"));
         prop.put("username", env.getProperty(prefix + "username"));
-        prop.put("password", env.getProperty(prefix + "password"));
+        //prop.put("password", env.getProperty(prefix + "password"));
+        prop.put("password", ConfigTools.decrypt(publicKey,env.getProperty(prefix + "password")));
         prop.put("driverClassName", env.getProperty(prefix + "driverClassName", ""));
         prop.put("initialSize", env.getProperty(prefix + "initialSize", Integer.class));
         prop.put("maxActive", env.getProperty(prefix + "maxActive", Integer.class));
